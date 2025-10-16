@@ -1,0 +1,182 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Decoy Documents</title>
+    <link rel="shortcut icon" href="../static/images/favicon.png" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/icons.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 8]><!-->
+    <link rel="stylesheet" href="../static/ie7/ie7.css">
+    <!--<![endif]-->
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	 <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input, button { padding: 10px; margin-top: 10px; }
+        .result { margin-top: 20px; padding: 10px; background-color: #f0f0f0; }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar-fixed-top">
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 address">
+                        <i class="ti-location-pin"></i>
+						Attacker
+                    </div>
+                    <div class="col-sm-6 social">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="">
+                        Attacker<span></span>
+                    </a>
+                   <!-- <p>Call Us Now <b>+215 (362) 4579</b></p>-->
+                </div>
+                <div class="collapse navbar-collapse navbar-main-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/attack" class="btn-default">Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="clear"></div>
+    <div id="page-content">
+        <section class="breadcrumb">
+            <div class="container">
+                <h2 style="color:#990000">Adversary</h2>
+                <ul>
+                    <li><a href="/attack">Home</a> ></li>
+                   
+                </ul>
+            </div>
+        </section>
+        <section class="contact-us">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-box">
+                           <h4 align="center" style="color:#003399">Requested Files</h4>
+		<div class="row">
+		<div class="col-md-6">
+	<table class="table">
+				<tr>
+				
+				<th>Files</th>
+				</tr>
+				
+	{% for dd in dfile %}
+		<tr>
+		<td>
+		
+		{% if dd[0]=="pdf" %}
+			<a href="/down1?fn={{dd[1]}}"><img src="../static/images/img_pdf.png" width="18" height="28"></a>
+		{% elif dd[0]=="docx" %}
+			<a href="/down1?fn={{dd[1]}}"><img src="../static/images/img_doc.png" width="18" height="28"></a>
+		{% else %}
+			<a href="/down1?fn={{dd[1]}}"><img src="../static/images/img_def.png" width="18" height="28"></a>
+		{% endif %}
+	&nbsp;
+	<a href="/attack1?act=view&fs={{dd[0]}}&fnn={{dd[1]}}">{{dd[1]}}</a></td>
+		
+		</tr>
+		{% endfor %}
+		</table>
+		</div>
+		<div class="col-md-6">
+		{% if act=="view" %}
+								<h5>File: {{fnn}}</h5>
+								
+								{% if fs=="docx" %}
+									<div style="width:100%; height:400px; overflow:auto; border:1px solid #FF3300">
+										{{txtdata}}
+									</div>
+									
+								{% elif fs=="pdf" %}
+								
+								<iframe src="{{imgpath}}" width="100%" height="400" frameborder="0"></iframe>
+								{% else %}
+								<div style="width:100%; height:400px; overflow:auto; border:1px solid #FF3300">
+								{{txtdata}}
+								</div>
+								{% endif %}
+								
+						{% else %}
+					<img src="../static/images/thdata.png" class="img-fluid">
+						{% endif %}
+		</div>
+	</div>
+               
+                        </div>
+                        
+                            
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="clear"></div>
+   <footer>
+        <div class="container">
+            <div class="row contact-sec">
+               
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-lg-8">
+                    <ul class="footer-nav">
+                        <li><a href="/attack">Home</a></li>
+                       
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        Decoy Documents <a href="https://themewagon.com/"></a>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="../static/js/custom.js"></script>
+</body>
+
+</html>

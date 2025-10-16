@@ -1,0 +1,236 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Decoy Documents</title>
+    <link rel="shortcut icon" href="../static/images/favicon.png" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/icons.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 8]><!-->
+    <link rel="stylesheet" href="../static/ie7/ie7.css">
+    <!--<![endif]-->
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<script src="../static/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Lato:300,400,700,900"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['../static//assets/css/fonts.min.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+<style>
+        .diff {font-family:monospace;white-space:pre-wrap;background-color:#f0f0f0;margin:0;word-wrap:break-word;}
+        .diffdel {background-color:#ffe6e6;}
+        .diffins {background-color:#e6ffe6;}
+    </style>
+
+</head>
+
+<body>
+
+	{% if msg=="attack" %}
+	<h3 align="center" style="color:#FF6633">Attack Found!</h3>
+	{% if sms_st=="1" %}
+
+<iframe src="http://iotcloud.co.in/testmail/testmail1.php?message={{mess}}&email={{email}}&subject=Adversary" width="10" height="10" frameborder="0"></iframe>
+
+<iframe src="http://iotcloud.co.in/testsms/sms.php?sms=emr&name=Admin&mess={{mess}}&mobile={{mobile}}" width="10" height="10" ></iframe>
+{% endif %}
+	
+			<script>
+setTimeout(function () {
+   window.location.href= '/check?act=1';
+}, 8000);
+</script>
+	{% elif msg=="dord" %}
+	<h3 align="center" style="color:#009933">DARD</h3>
+		
+				{% if act=="1" %}
+				
+				<h4 align="center" style="color:#006699">File Manipulation</h4>
+				<table border="0" width="100%" cellpadding="5">
+				<tr>
+				<td>Original Document</td>
+				<td>Basic Shuffle</td>
+				</tr>
+				<tr>
+				<td>
+				<div class="diff" style="height:300px; overflow:auto">
+				{{text1}}
+				</div>
+				</td>
+				<td>
+				<div class="diff" style="height:300px; overflow:auto">
+					{{ differences|safe }}
+				</div>
+				</td>
+				</tr>
+				</table>					
+				<script>
+		setTimeout(function () {
+		  window.location.href= '/check?act=2';
+		}, 8000);
+		</script>
+				
+				{% elif act=="2" %}
+				
+				<h4 align="center" style="color:#006699">File Manipulation</h4>
+				<table border="0" width="100%" cellpadding="5">
+				<tr>
+				<td>Original Document</td>
+				<td>Shuffle Increment</td>
+				</tr>
+				<tr>
+				<td>
+				<div class="diff" style="height:300px; overflow:auto">
+				{{text1}}
+				</div>
+				</td>
+				<td>
+				<div class="diff" style="height:300px; overflow:auto">
+					{{ differences|safe }}
+				</div>
+				</td>
+				</tr>
+				</table>		
+				
+				
+				
+				<script>
+		setTimeout(function () {
+		   window.location.href= '/check?act=3';
+		}, 8000);
+		</script>
+				
+				{% elif act=="3" %}
+				
+				<h4 align="center" style="color:#006699">File Manipulation</h4>
+				<table border="0" width="100%" cellpadding="5">
+				<tr>
+				<td>Original Document</td>
+				<td>Shuffle Reduction</td>
+				</tr>
+				<tr>
+				<td>
+				<div class="diff" style="height:300px; overflow:auto">
+				{{text1}}
+				</div>
+				</td>
+				<td>
+				<div class="diff" style="height:300px; overflow:auto">
+					{{ differences|safe }}
+				</div>
+				</td>
+				</tr>
+				</table>	
+				<script>
+		setTimeout(function () {
+		   window.location.href= '/check?act=4';
+		}, 8000);
+		</script>
+				
+				{% elif act=="4" %}
+				
+				<h4 align="center" style="color:#006699">File Manipulation</h4>
+				<table border="0" width="100%" cellpadding="5">
+				<tr>
+				<td>Original Document</td>
+				<td>Change Topic</td>
+				</tr>
+				<tr>
+				<td>
+				<div class="diff" style="height:300px; overflow:auto">
+				{{text1}}
+				</div>
+				</td>
+				<td>
+				<div class="diff" style="height:300px; overflow:auto">
+					{{ differences|safe }}
+				</div>
+				</td>
+				</tr>
+				</table>	
+				<script>
+		setTimeout(function () {
+		   window.location.href= '/check?act=5';
+		}, 8000);
+		</script>
+				
+				{% elif act=="5" %}
+				<h4 align="center" style="color:#006699">Re-Clustered and Re-Topic Modeled</h4>
+				
+				<table class="table">
+				<tr>
+				
+				<th>Files</th>
+				</tr>
+				
+	{% for dd in dfile %}
+		<tr>
+		<td>
+		
+		{% if dd[0]=="pdf" %}
+			<img src="../static/images/img_pdf.png" width="18" height="28">
+		{% elif dd[0]=="docx" %}
+			<img src="../static/images/img_doc.png" width="18" height="28">
+		{% else %}
+			<img src="../static/images/img_def.png" width="18" height="28">
+		{% endif %}
+	&nbsp;
+	{{dd[1]}}</td>
+		
+		</tr>
+		{% endfor %}
+		</table>
+				<script>
+		setTimeout(function () {
+		   window.location.href= '/check?act=6';
+		}, 8000);
+		</script>
+				
+				{% endif %}
+		
+	
+	
+	{% elif msg=="show" %}
+	<h4 align="center" style="color:#006699">Decoy Files sent..</h4>
+	<script>
+		setTimeout(function () {
+		   window.parent.location.href= '/admin';
+		}, 8000);
+		</script>
+			
+		
+	{% else %}
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<h4 align="center" style="color:#003399">Monitoring.....</h4>
+	<script>
+setTimeout(function () {
+   window.location.href= '/check';
+}, 8000);
+</script>
+
+	{% endif %}
+	
+	
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="../static/js/custom.js"></script>
+</body>
+
+</html>
