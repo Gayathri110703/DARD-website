@@ -1,0 +1,6 @@
+Feature	Possible Real Meaning
+feat1	TF-IDF score average across sections
+feat2	Keyword density or entropy
+feat3	Count of sensitive entities (like emails, phone numbers)
+feat4	File metadata complexity or size
+feat5	Number of embedded objects, scripts, or suspicious links
